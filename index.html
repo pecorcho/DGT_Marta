@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoescuela Springfield - Test DGT 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Barra de Progreso Superior -->
+        <header class="quiz-header">
+            <div class="logo-area">
+                <span class="logo-icon">🚗</span>
+                <div class="logo-text">
+                    <h1>Autoescuela <span>Springfield</span></h1>
+                    <p>Examen Teórico DGT 2026</p>
+                </div>
+            </div>
+            <div class="stats-area">
+                <div class="timer" id="quiz-timer">29:59</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="question-counter">Pregunta <span id="current-q">1</span>/30</div>
+            </div>
+        </header>
+
+        <main class="quiz-main">
+            <!-- Pantalla de Bienvenida -->
+            <section id="welcome-screen" class="view active">
+                <div class="hero-content">
+                    <h2>¿Listo para aprobar, novato?</h2>
+                    <p>Enfréntate a 30 preguntas reales del banco DGT 2026. <br>Solo se permiten <strong>3 fallos</strong>. ¡Como en el examen real!</p>
+                    
+                    <div class="character-intro">
+                        <div class="char-card">
+                            <span class="char-thumb">👴</span>
+                            <p><strong>El Veterano:</strong> Te daré los mejores trucos.</p>
+                        </div>
+                        <div class="char-card">
+                            <span class="char-thumb">🍩</span>
+                            <p><strong>El Vecino:</strong> ¡Ánimo, tú puedes!</p>
+                        </div>
+                    </div>
+
+                    <button id="start-exam-btn" class="primary-btn">Comenzar Examen</button>
+                </div>
+            </section>
+
+            <!-- Pantalla de Pregunta -->
+            <section id="quiz-screen" class="view">
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="category-tag" id="q-category">Seguridad Vial</span>
+                        <h3 id="question-text">Cargando pregunta...</h3>
+                    </div>
+                    
+                    <div class="options-container" id="options-container">
+                        <!-- Opciones dinámicas here -->
+                    </div>
+
+                    <div class="feedback-area hidden" id="feedback-area">
+                        <div class="feedback-persona">
+                            <span id="feedback-icon" class="persona-icon">👴</span>
+                            <div class="feedback-text">
+                                <p id="explanation-text"></p>
+                            </div>
+                        </div>
+                        <button id="next-q-btn" class="secondary-btn">Siguiente Pregunta</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pantalla de Resultados -->
+            <section id="result-screen" class="view">
+                <div class="result-card">
+                    <div id="result-animation" class="result-icon">🎉</div>
+                    <h2 id="result-title">¡Enhorabuena!</h2>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <span class="label">Aciertos</span>
+                            <span class="value" id="final-correct">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">Fallos</span>
+                            <span class="value" id="final-errors">0</span>
+                        </div>
+                    </div>
+                    <div class="result-message" id="result-message">
+                        Te has ganado el carné de Springfield. ¡Ten cuidado con los donuts!
+                    </div>
+                    <button id="restart-btn" class="outline-btn">Intentar de nuevo</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="quiz-footer">
+            <p>&copy; 2026 Autoescuela Springfield & DGT. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="questions.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
